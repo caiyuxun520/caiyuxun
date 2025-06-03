@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人档案 - 个人空间</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* 移除移动端菜单按钮样式 */
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        /* 修改返回按钮样式 */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(0, 255, 255, 0.1);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            color: #00ffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: translateX(-5px);
+        }
+
+        .back-btn i {
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .back-btn {
+                top: 10px;
+                left: 10px;
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 返回主页按钮 -->
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        返回主页
+    </a>
+
+    <!-- 视频背景容器 -->
+    <div class="video-container">
+        <video class="background-video" id="bgVideo" autoplay loop playsinline>
+            <source src="video/background.mp4" type="video/mp4">
+            您的浏览器不支持视频播放。
+        </video>
+    </div>
+    <div class="container profile-container">
+        <nav class="top-nav">
+            <h1>个人档案</h1>
+        </nav>
+
+        <div class="profile-content">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="images1/avatar.jpg" alt="个人头像">
+                    </div>
+                    <div class="profile-info">
+                        <h2>才羽尋博士</h2>
+                        <p class="title">罗德岛最高指挥官</p>
+                        <p class="location">重庆邮电大学</p>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <h3>个人简介</h3>
+                    <p>“无尽的远方 无数的人们 都与我有关 。”
+                        也许不该那么沉重的，
+                        一个个熟悉的人逝去，就只有那些人活下去，也只能是那些人，博士是那个执棋者，也是那个旁观者。
+                        有的生命在他手上，有的生命他无从操纵，有的生命在上个时空许下了“一定再相见” 的诺言，有的生命说“让这片大地安稳入眠。”
+                        沉重 沉重 沉重.......
+                        但是只有这样，才想去看到希望，才能看到生命的可贵，才能不忘记那些高尚的人们，才想和大家一同奔向那春天。</p>
+                </div>
+
+                <div class="profile-section">
+                    <h3>兴趣爱好</h3>
+                    <div class="hobby-tags">
+                        <span class="tag">玩明日方舟</span>
+                        <span class="tag">玩原神</span>
+                        <span class="tag">玩崩铁</span>
+                        <span class="tag">逃课</span>
+                        <span class="tag">与老女人激情互殴</span>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <h3>技能特长</h3>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <span class="skill-name">指挥</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">逃跑</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <!-- 更多技能项 -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-timeline">
+                <h3>个人经历</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021</div>
+                        <div class="timeline-content">
+                            <h4>首次来到泰拉大陆</h4>
+                            <p>2021年5月29日，从石棺中苏醒过来，开启我的恶灵人生。</p>
+                            <h4>邂逅了第一位干员</h4>
+                            <p>2021年6月1日，周年庆池子开启，为了浊心斯卡蒂掏心掏肺，结果歪到陪跑了。</p>
+                        </div>
+                        <div class="timeline-date">2022</div>
+                        <div class="timeline-content">
+                            <h4>挑衅老女人</h4>
+                            <p>2022年2月1日，公然在老女人的面前调戏其他干员，结果被老女人吊在甲板上一天。</p>
+                        </div>
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h4>女儿铃兰上岛</h4>
+                            <p>2023年9月10日，来自东国的忍冬带着她刚满16岁的女儿丽萨登上罗德岛，忍冬表明，不希望丽萨跟着自己卷入危险之中，希望将其庇护与本舰，期间自愿接受罗德岛方面所提供的相关教育。基于本舰对丽萨的考核通过，现批准丽萨作为罗德岛常驻干员，代号铃兰。</p>
+                    </div>
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h4>本舰航行至巴别塔区域</h4>
+                        <p>2024年3月5日，为促进罗德岛与巴别塔相关友好协议的签署，前往巴别塔区域与魔王会晤，在谈判期间，我们发现现任巴别塔议员主席维什戴尔为前整合运动雇佣兵W，我们尽量与其交涉，最终维什戴尔本人同意为本舰提供相关武装势力。</p>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/profile.js"></script>
+    <div class="audio-control" onclick="toggleSound()">
+        <i class="fas fa-volume-up" id="soundIcon"></i>
+    </div>
+    <script>
+        let bgVideo = document.getElementById('bgVideo');
+        let soundIcon = document.getElementById('soundIcon');
+        let isSoundPlaying = true;
+        window.addEventListener('load', function() {
+            bgVideo.muted = false;
+            bgVideo.volume = 1;
+            bgVideo.play().catch(e => {
+                // 如果被拦截，自动降级为静音播放
+                bgVideo.muted = true;
+                bgVideo.play();
+            });
+            soundIcon.className = 'fas fa-volume-up';
+            isSoundPlaying = true;
+        });
+        function toggleSound() {
+            if (isSoundPlaying) {
+                bgVideo.muted = true;
+                soundIcon.className = 'fas fa-volume-mute';
+            } else {
+                bgVideo.muted = false;
+                soundIcon.className = 'fas fa-volume-up';
+            }
+            isSoundPlaying = !isSoundPlaying;
+        }
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                bgVideo.pause();
+            } else {
+                bgVideo.play();
+            }
+        });
+    </script>
+</body>
+</html> 
