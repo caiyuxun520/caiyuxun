@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章分享 - 个人空间</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/articles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* 移除移动端菜单按钮样式 */
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        /* 修改返回按钮样式 */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(0, 255, 255, 0.1);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            color: #00ffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: translateX(-5px);
+        }
+
+        .back-btn i {
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .back-btn {
+                top: 10px;
+                left: 10px;
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 返回主页按钮 -->
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        返回主页
+    </a>
+
+    <!-- 视频背景容器 -->
+    <div class="video-container">
+        <video class="background-video" id="bgVideo" autoplay loop playsinline>
+            <source src="video/background.mp4" type="video/mp4">
+            您的浏览器不支持视频播放。
+        </video>
+    </div>
+    <div class="main-container">
+        <div class="container articles-container">
+            <nav class="top-nav">
+                <h1>文章分享</h1>
+            </nav>
+
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="搜索文章标题...">
+                    <input type="date" id="dateFilter">
+                    <button id="searchBtn">搜索</button>
+                </div>
+                <div class="filter-tags">
+                    <span class="filter-tag active">全部</span>
+                    <span class="filter-tag">活动</span>
+                    <span class="filter-tag">生活</span>
+                    <span class="filter-tag">摄影</span>
+                    <span class="filter-tag">旅行</span>
+                </div>
+            </div>
+
+            <div class="articles-grid">
+                <!-- 文章卡片示例 -->
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="images1/article1.jpg" alt="文章配图">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date">2024-03-15</span>
+                            <span class="article-category">技术</span>
+                        </div>
+                        <h2 class="article-title">全新SideStory登场</h2>
+                        <p class="article-excerpt">SideStory「红丝绒」限时活动即将开启</p>
+                        <div class="article-footer">
+                            <span class="read-time">5分钟阅读</span>
+                            <button class="read-more">阅读更多</button>
+                        </div>
+                    </div>
+                </article>
+                <!-- 更多文章卡片 -->
+            </div>
+
+            <div class="pagination">
+                <button class="page-btn prev">上一页</button>
+                <div class="page-numbers">
+                    <span class="page-number active">1</span>
+                    <span class="page-number">2</span>
+                    <span class="page-number">3</span>
+                </div>
+                <button class="page-btn next">下一页</button>
+            </div>
+        </div>
+
+        <!-- 文章详情模态框 -->
+        <div class="article-modal" id="articleModal">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <div class="modal-body">
+                    <!-- 文章详细内容将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="audio-control" onclick="toggleSound()">
+        <i class="fas fa-volume-up" id="soundIcon"></i>
+    </div>
+    <script src="js/articles.js"></script>
+    <script>
+        let bgVideo = document.getElementById('bgVideo');
+        let soundIcon = document.getElementById('soundIcon');
+        let isSoundPlaying = true;
+        window.addEventListener('load', function() {
+            bgVideo.muted = false;
+            bgVideo.volume = 1;
+            bgVideo.play().catch(e => {
+                // 如果被拦截，自动降级为静音播放
+                bgVideo.muted = true;
+                bgVideo.play();
+            });
+            soundIcon.className = 'fas fa-volume-up';
+            isSoundPlaying = true;
+        });
+        function toggleSound() {
+            if (isSoundPlaying) {
+                bgVideo.muted = true;
+                soundIcon.className = 'fas fa-volume-mute';
+            } else {
+                bgVideo.muted = false;
+                soundIcon.className = 'fas fa-volume-up';
+            }
+            isSoundPlaying = !isSoundPlaying;
+        }
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                bgVideo.pause();
+            } else {
+                bgVideo.play();
+            }
+        });
+    </script>
+</body>
+</html> 
